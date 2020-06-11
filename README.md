@@ -1,5 +1,3 @@
-# PARS  
-
 팀원간 작업 분배  
 강승환, 이우림  
 raspberry pi-server간 소켓통신 구성  
