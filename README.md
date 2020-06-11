@@ -30,9 +30,9 @@ Pet Automatic Relief Service
 - 깃허브 환경 설정
 - Raspberry pi port forwarding
 - AWS 서버 파기
--OpenCV를 위한 개발환경 구성
+- OpenCV를 위한 개발환경 구성
 - README.md 페이지 작성
-
+- git remote repo2개 연결하는것 찾아보기
 <br>
 
 ## 참고 자료
