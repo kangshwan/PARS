@@ -18,7 +18,8 @@ Pet Automatic Relief Service
     - 
 - __기능정의__
     - 
-    
+- __서버GIT__
+    -https://github.com/kangshwan/PARS_SERVER
 
 ## 개발일지
 <details>
