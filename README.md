@@ -70,6 +70,9 @@ Pet Automatic Relief Service
 - roadcell module을 통해 언제 얼마나 밥을 먹기 시작하여<br> 
   식사가 종료했는지 출력하고 출력데이터 output.txt에 저장
 <br>
+>donghyun
+- step motor를 이용하여 먹이를 주는 prototype코드 작성.
+- 사용자로부터 입력받은 시간에 맞춰 먹이주는 prototype코드 작성.
 ## 참고 자료
 <!-- - []() -->
 
