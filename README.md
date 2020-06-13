@@ -18,14 +18,15 @@ Pet Automatic Relief Service
     - 
 - __기능정의__
     - 
-    
+- __서버GIT__
+    -https://github.com/kangshwan/PARS_SERVER
 
 ## 개발일지
 <details>
 <summary> 개발 일지  (눌러서 내용보기) </summary>
 <div markdown="1">
 
-## 👩🏽‍💻 6월 11일 (토)
+## 👩🏽‍💻 6월 11일 (목)
 #### To Do
 - 깃허브 환경 설정
 - Raspberry pi port forwarding
@@ -33,6 +34,18 @@ Pet Automatic Relief Service
 - OpenCV를 위한 개발환경 구성
 - README.md 페이지 작성
 - git remote repo2개 연결하는것 찾아보기
+<br>
+
+## 👩🏽‍💻 6월 12일 (금)
+#### To Do
+- OpenCV를 위한 개발환경 구성
+- git remote repo2개 연결하는것 찾아보기
+#### Complete
+>kang
+- 깃허브 환경 설정
+- 포트포워딩
+- README.md 작성(지속적인 update 예정)
+- AWS 서버 생성
 <br>
 
 ## 참고 자료
