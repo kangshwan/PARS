@@ -50,7 +50,10 @@ print("Tare done! Add weight now...")
 # to use both channels, you'll need to tare them both
 #hx.tare_A()
 #hx.tare_B()
-
+val_list = []
+val_list_dif = []
+now = time.localtime()
+i = 0
 while True:
     try:
         # These three lines are usefull to debug wether to use MSB or LSB in the reading formats
@@ -64,6 +67,22 @@ while True:
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
         val = hx.get_weight(5)
         print(val)
+	val_list.append(val)
+		if len(val_list) >= 2:
+		val_list_dif.append(val_list[i] - val_list[i+1])
+		if val_list_dif[i] >=10:
+			sys.stdout = open('output.txt','w')
+			print("%02d/%02d %02d:%02d start eating" % (now.tm_mon,$
+		else if val_list_dif[i] <= 2 and val_list[i-1] > val_list[i]:
+			if val_list[i] < 5:
+				sys.stdout = open('output.txt','w')
+				print("%02d/%02d %02d:%02d finish eating" % (no$
+			else if 5 <= val_list[i] <=189:
+				sys.stdout = open('output.txt','w')
+				print("%02d/%o2d %02d:%02d finish eating but %d$
+		else:
+			pass
+		i += 1
         # To get weight from both channels (if you have load cells hooked up 
         # to both channel A and B), do something like this
         #val_A = hx.get_weight_A(5)
