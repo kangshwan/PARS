@@ -54,7 +54,7 @@ Pet Automatic Relief Service
 - git remote repo2개 연결하는것 찾아보기
 #### Complete
 >kang
--git push할 경우 username입력 자동화
+- git push할 경우 username입력 자동화
 <br>
 ## 참고 자료
 <!-- - []() -->
