@@ -28,39 +28,37 @@ hx.tare()
 print("Tare done! Add weight now...")
 now = time.localtime() #글로벌 시간 호출함수
 class check_weight:
-    val = 0
-    val_list = []
-    val_list_dif = []
-    now = time.localtime()
-    i = 0
-    while True:
-        try:
-            val = hx.get_weight(5)
-            print("current weight is")
-            print(val)
-            val_list.append(val)
-            print("val_list is")
-            print(val_list)
-            print("current time is")
-            print("%02d/%02d %02d:%02d:%02d" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec))
-            if len(val_list) >= 2:
-                val_list_dif.append(val_list[i] - val_list[i+1])
-            if val_list_dif[i] >=10:
-                print("your pet is eating")
-            elif val_list_dif[i] <= 1 and val_list[i-1] > val_list[i]:
-                print("your pet has finishing eating")
-            else:
-                pass
-            i += 1
-            print("val_list_dif is")
-            print(val_list_dif)
-            hx.power_down()
-            hx.power_up()
-            time.sleep(3)
+val_list = []
+val_list_dif = []
+now = time.localtime()
+i = 0
+while True:
+    try:
+        val = hx.get_weight(5)
+        print(val)
+	    val_list.append(val)
+		if len(val_list) >= 2:
+		val_list_dif.append(val_list[i] - val_list[i+1])
+		if val_list_dif[i] >=10:
+			sys.stdout = open('output.txt','w')
+			print("%02d/%02d %02d:%02d start eating" % (now.tm_mon,$
+		else if val_list_dif[i] <= 2 and val_list[i-1] > val_list[i]:
+			if val_list[i] < 5:
+				sys.stdout = open('output.txt','w')
+				print("%02d/%02d %02d:%02d finish eating" % (no$
+			else if 5 <= val_list[i] <=189:
+				sys.stdout = open('output.txt','w')
+				print("%02d/%o2d %02d:%02d finish eating but %d$
+		else:
+			pass
+		i += 1
 
-        except (KeyboardInterrupt, SystemExit):
-            cleanAndExit()
+        hx.power_down()
+        hx.power_up()
+        time.sleep(0.1)
 
+    except (KeyboardInterrupt, SystemExit):
+        cleanAndExit()
 #시간설정파트 사용자가 입력을 하면 서버로부터 그 값을 받아올것. day,hour,min 만 현재 염두중.
 class feed_timeset:
     time_save = list()
@@ -93,21 +91,23 @@ class feed_timeset:
         StepDir = 1 # 1일때 시계방향으로 돌아감. #방향제어 필요할시 loop문에 추가할 것.
         i = 0
         try:
-            if (time_save[i][0] == now.tm_mon and time_save[i][1] == now.tm_mday and time_save[i][2] == now.tm_hour):
-                print(StepCounter)
-                print(Seq[StepCounter]) #두 줄을 통해 Stepcounter 와 Sequence의 관계 및 역할 알 수 있음
+            while 1:
+                if (time_save[i][0] == now.tm_mon and time_save[i][1] == now.tm_mday and time_save[i][2] == now.tm_hour):
+                    print(StepCounter)
+                    print(Seq[StepCounter]) #두 줄을 통해 Stepcounter 와 Sequence의 관계 및 역할 알 수 있음
 
-                for pin in range(0, 4):
-                    xpin = StepPins[pin]
-                    if Seq[StepCounter][pin] != 0: #Seq[][] 0이 아니면 동작
-                        GPIO.output(xpin, True)
-                    else:
-                        GPIO.output(xpin, False)
-                StepCounter += 1
-                if(StepCounter < 0):
-                    StepCounter = StepCount
-                if(StepCounter == StepCount):
-                    print("Ran out of foods.")
-                    break
+                    for pin in range(0, 4):
+                        xpin = StepPins[pin]
+                        if Seq[StepCounter][pin] != 0: #Seq[][] 0이 아니면 동작
+                            GPIO.output(xpin, True)
+                        else:
+                            GPIO.output(xpin, False)
+                    StepCounter += 1
+                    time.sleep(60)
+                    if(StepCounter < 0):
+                        StepCounter = StepCount
+                    if(StepCounter == StepCount):
+                        print("Ran out of foods.")
+                        break
         except KeyboardInterrupt:   
             GPIO.cleanup()
