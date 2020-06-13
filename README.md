@@ -48,6 +48,14 @@ Pet Automatic Relief Service
 - AWS 서버 생성
 <br>
 
+## 👩🏽‍💻 6월 13일 (금)
+#### To Do
+- OpenCV를 위한 개발환경 구성
+- git remote repo2개 연결하는것 찾아보기
+#### Complete
+>kang
+-git push할 경우 username입력 자동화
+<br>
 ## 참고 자료
 <!-- - []() -->
 
