@@ -58,7 +58,6 @@ Pet Automatic Relief Service
 #### Complete
 >kang
 - git push할 경우 username입력 자동화
-<br>
 >jiwon
 - raspberrypi에 roadcell module(aduino)를 연결하여 제어
 <br>
