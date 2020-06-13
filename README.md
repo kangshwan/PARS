@@ -61,6 +61,15 @@ Pet Automatic Relief Service
 >jiwon
 - raspberrypi에 roadcell module(aduino)를 연결하여 제어
 <br>
+
+## 👩🏽‍💻 6월 14일 (일)
+#### To Do
+
+#### Complete
+>jiwon
+- roadcell module을 통해 언제 얼마나 밥을 먹기 시작하여 
+  식사가 종료했는지 출력하고 출력데이터 output.txt에 저장
+<br>
 ## 참고 자료
 <!-- - []() -->
 
