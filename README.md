@@ -73,6 +73,15 @@ Pet Automatic Relief Service
 - step motor를 이용하여 먹이를 주는 prototype코드 작성
 - 사용자로부터 입력받은 시간에 맞춰 먹이주는 prototype코드 작성
 <br>
+
+## 👩🏽‍💻 6월 15일 (월)
+#### To Do
+
+#### Complete
+>jiwon
+- run.py 먹기 시작한 시점, 다 먹은 시점(+ 남았다면 남은 g) 세부 조정
+  및 output.txt에 저장 
+<br>
 ## 참고 자료
 <!-- - []() -->
 
