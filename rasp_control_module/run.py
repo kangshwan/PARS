@@ -52,8 +52,11 @@ print("Tare done! Add weight now...")
 #hx.tare_B()
 val_list = []
 val_list_dif = []
+output_list = []
 now = time.localtime()
 i = 0
+j = 0
+k = 0
 while True:
     try:
         # These three lines are usefull to debug wether to use MSB or LSB in the reading formats
@@ -68,21 +71,32 @@ while True:
         val = hx.get_weight(5)
         print(val)
 	val_list.append(val)
-		if len(val_list) >= 2:
+	f = open('output.txt', 'a')
+	if len(val_list) >= 2:
 		val_list_dif.append(val_list[i] - val_list[i+1])
-		if val_list_dif[i] >=10:
-			sys.stdout = open('output.txt','w')
-			print("%02d/%02d %02d:%02d start eating" % (now.tm_mon,$
-		else if val_list_dif[i] <= 2 and val_list[i-1] > val_list[i]:
-			if val_list[i] < 5:
-				sys.stdout = open('output.txt','w')
-				print("%02d/%02d %02d:%02d finish eating" % (no$
-			else if 5 <= val_list[i] <=189:
-				sys.stdout = open('output.txt','w')
-				print("%02d/%o2d %02d:%02d finish eating but %d$
+		print(val_list_dif)
+		print("val_list_dif")	
+		if val_list_dif[i] >= 10 and j == 0:
+			f.write(("%02d/%02d %02d:%02d start eating\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min)))
+			print("%02d/%02d %02d:%02d start eating" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min))
+			j += 1
+			k += 1				
+		if -2 <= val_list_dif[i] <= 2:
+			if val_list[i-1] >= val_list[i]:
+				if val_list[i] < 5 and k == 1:		
+					f.write(("%02d/%02d %02d:%02d finish eating\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min)))
+					print("%02d/%02d %02d:%02d finish eating" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min))
+					j -= 1
+					k -= 1
+				if 5 <= val_list[i] <=189 and k == 1:
+					f.write(("%02d/%o2d %02d:%02d finish eating but %dg left\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, val_list[i])))
+					print("%02d/%02d %02d:%02d finish eating but %dg left" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min,val_list[i]))
+					j -= 1
+					k -= 1
 		else:
 			pass
 		i += 1
+	
         # To get weight from both channels (if you have load cells hooked up 
         # to both channel A and B), do something like this
         #val_A = hx.get_weight_A(5)
@@ -91,7 +105,7 @@ while True:
 
         hx.power_down()
         hx.power_up()
-        time.sleep(0.1)
-
+        time.sleep(1)
+		
     except (KeyboardInterrupt, SystemExit):
         cleanAndExit()
