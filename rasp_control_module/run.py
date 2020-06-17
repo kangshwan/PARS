@@ -52,13 +52,13 @@ print("Tare done! Add weight now...")
 # to use both channels, you'll need to tare them both
 #hx.tare_A()
 #hx.tare_B()
-val_list = []
-val_list_dif = []
-output_list = []
+val_list = [] #현재값들의 리스트 즉 sudo python run.py실행하고부터의val값들의list
+val_list_dif = []#현재값과다음값의차이들의 리스트
 
 i = 0
 j = 0
 k = 0
+q = 0 
 while True:
     try:
         # These three lines are usefull to debug wether to use MSB or LSB in the reading formats
@@ -70,49 +70,48 @@ while True:
         # print binary_string + " " + np_arr8_string
         
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
-        val = hx.get_weight(5)
-	get_val = classname.get_weight(??)
+        val = hx.get_weight(5)  #현재값
+	#get_val = 먹이를몇그램줘야하는지를서버에서text파일로보내주면그값을읽을예정필히추가해야함
         print(val)
 	val_list.append(val)
 	f = open('output.txt', 'a')
-	g = open('input.txt', 'r', encoding='UTF-8')
-	a = ("%02d:%02d"%(now.tm_hour, now.tm_min))
-	text_context_list=[]
-	line_num = 1
-	line_data = g.readline()
-	while line_data:
+	g = open('input.txt', 'r', encoding='UTF-8') #input.txt는서버에서받아올파일
+	a = ("%02d:%02d"%(now.tm_hour, now.tm_min))#현재시간 시간 분추후초도추가할 예정
+	text_context_list=[] #input.txt의내용을한줄마다리스트에추가
+	line_num = 1 #input.txt의 첫번째줄두번째줄을뽑기위한변수
+	line_data = g.readline()#한줄읽기
+	while line_data:#한줄한줄읽으면서text_contect_list에추가
 		line_data=g.readline()
 		text_contect_list.append(line_data)
 		line_num += 1
 	g.close()
-	for i in range(len(line_data)):
-		if a == text_contect_list[i]:
-			if val <= get_val:
-				classname.foodstart() #foodweight를초기설정으로 지정해서 그val(무게)가
-					       	       #초기설정을 넘어가면 foodstop()
-			else if val > get_val:
-				classname.foodstop()
+	for q in range(len(text_contect_list)):#text_contect_list의길이만큼for문을돌려서
+		if a == text_contect_list[q]:#만약현재시간분초가리스트에있는시간분초와 같다면
+			if val <= get_val:#만약현재무게가text에서받아온값보다작다면
+				classname.foodstart()#모터를돌려서먹이가나온다
+					       	     
+			else if val > get_val:#만약현재무게가tex에서받아온값보다크다면
+				classname.foodstop()#모터를돌려서먹이안나오게한다.
 			else:
-				pass 
+				pass #else 패스
 
-	if len(val_list) >= 2:
-		val_list_dif.append(val_list[i] - val_list[i+1])
+	if len(val_list) >= 2: #val_list길이가2이상일떄부터
+		val_list_dif.append(val_list[i] - val_list[i+1]) #차이값들을 리스트로저장
 		
-		print(val_list_dif)
-		print("val_list_dif")	
-		if val_list_dif[i] >= 10 and j == 0:
+		print(val_list_dif)	
+		if val_list_dif[i] >= 10 and j == 0:#차이가10이상이면밥을먹기시작
 			f.write(("%02d/%02d %02d:%02d start eating\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min)))
 			print("%02d/%02d %02d:%02d start eating" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min))
-			j += 1
+			j += 1 #j,k값들의 값을 0,1왔다갔다하면서on,off
 			k += 1				
-		if -2 <= val_list_dif[i] <= 2:
+		if -2 <= val_list_dif[i] <= 2:#만약디프런스가미세하다면다먹었다호출해주고
 			if val_list[i-1] >= val_list[i]:
-				if val_list[i] < 5 and k == 1:		
+				if val_list[i] < 5 and k == 1:#무게가 5g이하먄 다먹음		
 					f.write(("%02d/%02d %02d:%02d finish eating\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min)))
 					print("%02d/%02d %02d:%02d finish eating" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min))
 					j -= 1
 					k -= 1
-				if 5 <= val_list[i] <=189 and k == 1:
+				if 5 <= val_list[i] <=189 and k == 1:#무게가처음준무게와5사이면몇g남음
 					f.write(("%02d/%o2d %02d:%02d finish eating but %dg left\n" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, val_list[i])))
 					print("%02d/%02d %02d:%02d finish eating but %dg left" % (now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min,val_list[i]))
 					j -= 1
