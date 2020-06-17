@@ -80,15 +80,19 @@ Pet Automatic Relief Service
 #### Complete
 >jiwon
 - run.py 먹기 시작한 시점, 다 먹은 시점(+ 남았다면 남은 g) 세부 조정
-  및 output.txt에 저장 
+  및 output.txt에 저장
+>donghyun
+-step motor 이용한 알고리즘 정리 및 입력받은 시간 객체화.
 <br>
 
 ## 👩🏽‍💻 6월 17일 (수)
 #### To Do
-- 모터class추가하고 세부조정 필요 
+- 모터class추가하고 세부조정 필요
+- txt파일이 아닌 json파일로 받는것에 대한 논의
 #### Complete
 >jiwon
-- run.py update 서버명령으로 input.txt에 자료저장, 그 자료를 해석하여 먹이를 정해진 시간에 정해진 양 만큼 배급.
+- run.py update 서버명령으로 input.txt에 자료저장, 그 자료를 해석하여 먹이를 정해진 시간에 정해진 양 만큼 배급.\
+>donghyun
 #### 
 <br>
 ## 참고 자료
