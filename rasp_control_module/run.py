@@ -3,6 +3,8 @@
 import time
 import sys
 
+now = time.localtime()
+
 EMULATE_HX711=False
 
 referenceUnit = 1
@@ -53,7 +55,7 @@ print("Tare done! Add weight now...")
 val_list = []
 val_list_dif = []
 output_list = []
-now = time.localtime()
+
 i = 0
 j = 0
 k = 0
@@ -69,11 +71,33 @@ while True:
         
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
         val = hx.get_weight(5)
+	get_val = classname.get_weight(??)
         print(val)
 	val_list.append(val)
 	f = open('output.txt', 'a')
+	g = open('input.txt', 'r', encoding='UTF-8')
+	a = ("%02d:%02d"%(now.tm_hour, now.tm_min))
+	text_context_list=[]
+	line_num = 1
+	line_data = g.readline()
+	while line_data:
+		line_data=g.readline()
+		text_contect_list.append(line_data)
+		line_num += 1
+	g.close()
+	for i in range(len(line_data)):
+		if a == text_contect_list[i]:
+			if val <= get_val:
+				classname.foodstart() #foodweight를초기설정으로 지정해서 그val(무게)가
+					       	       #초기설정을 넘어가면 foodstop()
+			else if val > get_val:
+				classname.foodstop()
+			else:
+				pass 
+
 	if len(val_list) >= 2:
 		val_list_dif.append(val_list[i] - val_list[i+1])
+		
 		print(val_list_dif)
 		print("val_list_dif")	
 		if val_list_dif[i] >= 10 and j == 0:
@@ -96,7 +120,8 @@ while True:
 		else:
 			pass
 		i += 1
-	
+
+	f.close()
         # To get weight from both channels (if you have load cells hooked up 
         # to both channel A and B), do something like this
         #val_A = hx.get_weight_A(5)
