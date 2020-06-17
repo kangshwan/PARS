@@ -155,4 +155,3 @@ def food_trunk(self):
                     i = 0
                     print("Ran out of foods.")  #문제점 4번 다돌리기전 음식채우면 어떡하냐, 
         
-    if __name__ == "__main__":
