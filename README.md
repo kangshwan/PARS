@@ -89,10 +89,15 @@ Pet Automatic Relief Service
 #### To Do
 - 모터class추가하고 세부조정 필요
 - txt파일이 아닌 json파일로 받는것에 대한 논의
+- 사용자로부터 먹이줄 무게 받는 func or class 구현
+- main파일 완성
 #### Complete
 >jiwon
 - run.py update 서버명령으로 input.txt에 자료저장, 그 자료를 해석하여 먹이를 정해진 시간에 정해진 양 만큼 배급.\
 >donghyun
+- motor class 추가 및 조정.
+- 시간을 받아오는 클래스 및 파일 생성하여 정리.
+- main파일 만들어 모든 코드정리.
 #### 
 <br>
 ## 참고 자료
