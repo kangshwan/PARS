@@ -98,6 +98,7 @@ def openfile():
         f.write(data)
         f.close()
 """
+
 def readlines_obo():
     f = open("new_file.txt",'r')
     lines = f.readlines()
