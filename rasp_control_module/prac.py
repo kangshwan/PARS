@@ -1,4 +1,3 @@
-#! /usr/bin/python2
 import time
 import sys
 if not EMULATE_HX711:
@@ -40,6 +39,7 @@ print("Tare done! Add weight now...")
 #로드셀 2개 쓰고 싶을때는 이걸 사용하면 될 것 같습니다.
 #hx.tare_A()
 #hx.tare_B()
+
 val_list = [] #현재값들의 리스트 즉 sudo python run.py실행하고부터의val값들의list
 val_list_dif = []#현재값과다음값의차이들의 리스트
 
@@ -51,6 +51,7 @@ while True:
     try:
         val = hx.get_weight(5)  #현재값
 	#get_val = 먹이를몇그램줘야하는지를서버에서text파일로보내주면그값을읽을예정필히추가해야함
+	#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         print(val)
 	val_list.append(val)
 	f = open('output.txt', 'a')
