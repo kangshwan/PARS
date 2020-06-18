@@ -1,8 +1,12 @@
 import time
 import sys
-#import RPI.GPIO as GPIO
 import json
 
+#To get the file from server by json.
+"""
+    Insert the code to here.
+    Make code by class. Absolutely.
+"""
 class File_control:
     def __init__(self, filename, wr_action, rd_action):
         self.fn_open = filename
