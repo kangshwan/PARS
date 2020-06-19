@@ -39,12 +39,3 @@ class Time_split:
             Users_timeset = b.split(':')
             Real_users_timeset = Users_timeset[1:4]
         return Real_users_timeset
-
-Open_files = File_control("babo.txt", "w", "r")
-Open_files.openfile()
-lines = Open_files.readlines_obo()
-
-Split = Time_split(lines)
-Split.split_time()
-
-
