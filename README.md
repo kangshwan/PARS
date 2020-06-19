@@ -103,7 +103,7 @@ Pet Automatic Relief Service
 ## 👩🏽‍💻 6월 18일 (목)
 #### To Do
 - 모터class추가하고 세부조정 필요
-- txt파일이 아닌 json파일로 받는것에 대한 논의
+- txt파일이 아닌 json파일로 받는것에 대한 논의(완료)
 - 사용자로부터 먹이줄 무게 받는 func or class 구현
 - main파일 완성
 - raspberrypi에서 data읽은 후 jsonfile을 보내기 위하여 class 제작필요
@@ -115,12 +115,13 @@ Pet Automatic Relief Service
 ## 👩🏽‍💻 6월 19일 (금)
 #### To Do
 - 모터class추가하고 세부조정 필요
-- txt파일이 아닌 json파일로 받는것에 대한 논의
 - 사용자로부터 먹이줄 무게 받는 func or class 구현
 - main파일 완성
 - raspberrypi에서 data읽은 후 jsonfile을 보내기 위하여 class 제작필요
-- camera module raspberrypi에서 streaming
+
 #### Complete
+>kang
+- raspberrypi의 camera에서 django server로 streaming 성공
 #### 
 <br>
 ## 참고 자료
