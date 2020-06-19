@@ -122,7 +122,7 @@ Pet Automatic Relief Service
 - camera module raspberrypi에서 streaming
 #### Complete
 >donghyun
--사용자로부터 먹이 줄 무게 받는 class 구현(proto type)
+- 사용자로부터 먹이 줄 무게 받는 class 구현(proto type)
 - 하는김에 mainpage만들어봄
 #### 
 <br>
