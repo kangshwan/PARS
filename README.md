@@ -98,7 +98,7 @@ Pet Automatic Relief Service
 - motor class 추가 및 조정.
 - 시간을 받아오는 클래스 및 파일 생성하여 정리.
 - main파일 만들어 모든 코드정리.
-#### 
+<br>
 
 ## 👩🏽‍💻 6월 18일 (목)
 #### To Do
@@ -110,7 +110,7 @@ Pet Automatic Relief Service
 #### Complete
 >kang
 - django-raspberrypi간에 json file post방식으로 전달 및 django의 sql에 저장.
-#### 
+<br> 
 
 ## 👩🏽‍💻 6월 19일 (금)
 #### To Do
@@ -124,7 +124,17 @@ Pet Automatic Relief Service
 >donghyun
 - 사용자로부터 먹이 줄 무게 받는 class 구현(proto type)
 - 하는김에 mainpage만들어봄
-#### 
+>jiwon
+- run.py에 motor logic을 추가함.
+<br>
+## 👩🏽‍💻 6월 20일 (토)
+#### To Do
+- 간단한 device만들어야함
+- 먹이를 주는 것에 대한 세부적인 조정이 필요
+- server쪽과 주고받을 파일을 어떻게 할것인가에 대해 논의 필요
+#### Complete
+>jiwon
+- run.py에 motor logic을 추가함
 <br>
 ## 참고 자료
 <!-- - []() -->
