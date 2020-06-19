@@ -121,6 +121,9 @@ Pet Automatic Relief Service
 - raspberrypi에서 data읽은 후 jsonfile을 보내기 위하여 class 제작필요
 - camera module raspberrypi에서 streaming
 #### Complete
+>donghyun
+-사용자로부터 먹이 줄 무게 받는 class 구현(proto type)
+- 하는김에 mainpage만들어봄
 #### 
 <br>
 ## 참고 자료
