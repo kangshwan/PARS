@@ -2,11 +2,18 @@
 #-*-coding:utf-8-*-
 import time
 import sys
-
+import wiringpi as wp
 now = time.localtime()
-
+PIN_1A = 27
+PIN_1B = 0
+PIN_2A = 1
+PIN_2B = 24
 EMULATE_HX711=False
-
+wp.wiringPiSetup()
+wp.pinMode(PIN_1A, 1)
+wp.pinMode(PIN_1B, 1)
+wp.pinMode(PIN_2A, 1)
+wp.pinMode(PIN_2B, 1)
 referenceUnit = 1
 
 if not EMULATE_HX711:
@@ -58,7 +65,34 @@ val_list_dif = []#현재값과다음값의차이들의 리스트
 i = 0
 j = 0
 k = 0
-q = 0 
+q = 0
+cur_food = False
+#from_time = time from server  
+def rotate():
+	wp.pinMode(PIN_1A, 1)
+	wp.pinMode(PIN_1B, 1)
+	wp.pinMode(PIN_2A, 1)
+	wp.pinMode(PIN_2B, 1)
+	wp.digitalWrite(PIN_1A, 1)
+    	wp.digitalWrite(PIN_1B, 0)
+    	wp.digitalWrite(PIN_2A, 0)
+    	wp.digitalWrite(PIN_2B, 0)
+    	time.sleep(0.1)
+    	wp.digitalWrite(PIN_1A, 0)
+    	wp.digitalWrite(PIN_1B, 1)
+    	wp.digitalWrite(PIN_2A, 0)
+    	wp.digitalWrite(PIN_2B, 0)
+    	time.sleep(0.1)
+    	wp.digitalWrite(PIN_1A, 0)
+    	wp.digitalWrite(PIN_1B, 0)
+    	wp.digitalWrite(PIN_2A, 1)
+    	wp.digitalWrite(PIN_2B, 0)
+    	time.sleep(0.1)
+    	wp.digitalWrite(PIN_1A, 0)
+    	wp.digitalWrite(PIN_1B, 0)
+    	wp.digitalWrite(PIN_2A, 0)
+    	wp.digitalWrite(PIN_2B, 1)
+    	time.sleep(0.1)
 while True:
     try:
         # These three lines are usefull to debug wether to use MSB or LSB in the reading formats
@@ -73,6 +107,20 @@ while True:
         val = hx.get_weight(5)  #현재값
 	#get_val = 먹이를몇그램줘야하는지를서버에서text파일로보내주면그값을읽을예정필히추가해야함
         print(val)
+	from_val = #서버에서호출한밥의양혹은설정한밥의양
+	if from_time: #서버에서 호출한 시간이 되면
+		if val < from_val:#현재값이 서버에서 요구한값보다 작다면180도 돌려라 
+			if cur_food == False:
+				for i in range(6):
+					rotate()
+				cur_food = True #cur_food값 false ㅡ> true
+			else:
+				pass
+	if val >= from_val:#만약 현재값이 서버에서 요구한값보다 크다면 180도 돌려라
+		if cur_food == True
+			for i in range(6):
+				rotate()
+			cur_food = False
 	val_list.append(val)
 	f = open('output.txt', 'a')
 	g = open('input.txt', 'r') #input.txt는서버에서받아올파일
