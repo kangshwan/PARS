@@ -1,5 +1,5 @@
 #! /usr/bin/python2
-
+#-*-coding:utf-8-*-
 import time
 import sys
 
@@ -75,7 +75,7 @@ while True:
         print(val)
 	val_list.append(val)
 	f = open('output.txt', 'a')
-	g = open('input.txt', 'r', encoding='UTF-8') #input.txt는서버에서받아올파일
+	g = open('input.txt', 'r') #input.txt는서버에서받아올파일
 	a = ("%02d:%02d"%(now.tm_hour, now.tm_min))#현재시간 시간 분추후초도추가할 예정
 	text_context_list=[] #input.txt의내용을한줄마다리스트에추가
 	line_num = 1 #input.txt의 첫번째줄두번째줄을뽑기위한변수
@@ -85,15 +85,15 @@ while True:
 		text_contect_list.append(line_data)
 		line_num += 1
 	g.close()
-	for q in range(len(text_contect_list)):#text_contect_list의길이만큼for문을돌려서
-		if a == text_contect_list[q]:#만약현재시간분초가리스트에있는시간분초와 같다면
-			if val <= get_val:#만약현재무게가text에서받아온값보다작다면
-				classname.foodstart()#모터를돌려서먹이가나온다
+	#for q in range(len(text_contect_list)):#text_contect_list의길이만큼for문을돌려서
+	#	if a == text_contect_list[q]:#만약현재시간분초가리스트에있는시간분초와 같다면
+	#		if val <= 300:#만약현재무게가text에서받아온값보다작다면
+	#			classname.foodstart()#모터를돌려서먹이가나온다
 					       	     
-			else if val > get_val:#만약현재무게가tex에서받아온값보다크다면
-				classname.foodstop()#모터를돌려서먹이안나오게한다.
-			else:
-				pass #else 패스
+	#		if val > 300:#만약현재무게가tex에서받아온값보다크다면
+	#			classname.foodstop()#모터를돌려서먹이안나오게한다.
+	#		else:
+	#			pass #else 패스
 
 	if len(val_list) >= 2: #val_list길이가2이상일떄부터
 		val_list_dif.append(val_list[i] - val_list[i+1]) #차이값들을 리스트로저장
