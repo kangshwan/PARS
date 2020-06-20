@@ -132,6 +132,7 @@ Pet Automatic Relief Service
 - 간단한 device만들어야함
 - 먹이를 주는 것에 대한 세부적인 조정이 필요
 - server쪽과 주고받을 파일을 어떻게 할것인가에 대해 논의 필요
+- 강아지 등록 추가, 우리개 template에서 등록된 강아지 list하고 각 강아지별 식사량 확인.
 #### Complete
 >jiwon
 - run.py에 motor logic을 추가함
