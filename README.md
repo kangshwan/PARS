@@ -138,7 +138,8 @@ Pet Automatic Relief Service
 >jiwon
 - run.py에 motor logic을 추가함
 <br>
-## 👩🏽‍💻 6월 20일 (토)
+
+## 👩🏽‍💻 6월 21일 (금)
 #### To Do
 - 간단한 device만들어야함
 - 먹이를 주는 것에 대한 세부적인 조정이 필요
