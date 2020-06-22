@@ -127,6 +127,7 @@ Pet Automatic Relief Service
 >jiwon
 - run.py에 motor logic을 추가함.
 <br>
+
 ## 👩🏽‍💻 6월 20일 (토)
 #### To Do
 - 간단한 device만들어야함
@@ -144,7 +145,7 @@ Pet Automatic Relief Service
 - 간단한 device만들어야함
 - 먹이를 주는 것에 대한 세부적인 조정이 필요
 - server쪽과 주고받을 파일을 어떻게 할것인가에 대해 논의 필요
-- 강아지 등록 추가, 우리개 template에서 등록된 강아지 list하고 각 강아지별 식사량 확인.
+~~- 강아지 등록 추가, 우리개 template에서 등록된 강아지 list하고 각 강아지별 식사량 확인.~~
 - 원하는 시간대를 raspberrypi로 전송하여 시간에 맞춰서 동작하도록 함
 - 마지막으로 django server 배포
 ## 참고 자료
